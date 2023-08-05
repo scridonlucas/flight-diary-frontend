@@ -3,15 +3,21 @@ import { Diary } from '../types';
 const Content = ({ diaries }: { diaries: Diary[] }) => {
   return (
     <div>
-      {diaries.map((diary) => {
-        return (
-          <li key={diary.id}>
-            {diary.date}
-            {diary.visibility}
-            {diary.weather}
-          </li>
-        );
-      })}
+      <ul>
+        {diaries.map((diary) => {
+          return (
+            <li key={diary.id}>
+              date: {diary.date}
+              <br />
+              visibility: {diary.visibility}
+              <br />
+              weather: {diary.weather}
+              <br />
+              comment: {diary.comment}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
