@@ -8,35 +8,35 @@ const App = () => {
   const [diaries, setDiaries] = useState<Diary[]>([]);
 
   useEffect(() => {
-    try {
-      async () => {
+    (async () => {
+      try {
         const response = await getDiaries();
         setDiaries(response);
-      };
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.status);
-        console.error(error.response);
-      } else {
-        console.log(error);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log(error.status);
+          console.error(error.response);
+        } else {
+          console.log(error);
+        }
       }
-    }
+    })();
   }, []);
 
   const createDiary = async (newDiary: newDiary) => {
-    try {
-      async () => {
+    (async () => {
+      try {
         const response = await postDiary(newDiary);
         setDiaries(diaries.concat(response));
-      };
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.status);
-        console.error(error.response);
-      } else {
-        console.log(error);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log(error.status);
+          console.error(error.response);
+        } else {
+          console.log(error);
+        }
       }
-    }
+    })();
   };
 
   return (

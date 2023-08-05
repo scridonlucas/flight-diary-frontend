@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Diary, newDiary } from '../types';
-const baseUrl = 'http://localhost:3001/';
+const baseUrl = 'http://localhost:3001/api/diaries';
 
 export const getDiaries = async () => {
   const response = await axios.get<Diary[]>(baseUrl);
